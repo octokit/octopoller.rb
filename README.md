@@ -1,8 +1,17 @@
-# Octopoller
+# Octopoller 🦑
+Octopoller is a micro gem for polling and retrying, perfect for making repeating requests.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/octopoller`. To experiment with that code, run `bin/console` for an interactive prompt.
+```ruby
+Octopoller.poll(timeout: 15.seconds) do
+  begin
+    client.make_that_request # raises an Error sometimes
+  rescue Error
+    :re_poll
+  end
+end
 
-TODO: Delete this and the text above, and describe your gem
+# => { "status" => 200,  "body" => "🦑" }
+```
 
 ## Installation
 
