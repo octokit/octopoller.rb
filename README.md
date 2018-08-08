@@ -22,16 +22,80 @@ gem 'octopoller'
 ```
 
 And then execute:
-
-    $ bundle
-
+```bash
+$ bundle
+```
 Or install it yourself as:
-
-    $ gem install octopoller
-
+```bash
+$ gem install octopoller
+```
 ## Usage
 
-TODO: Write usage instructions here
+Octopoller exposes a single function `poll`. Here is what what the API looks like:
+```ruby
+# Polls until success
+# Re-runs when the block returns `:re_poll`
+#
+# wait      - The time delay in seconds between polls (default is 1 second)
+#           - When given the argument `:exponentially` the action will be retried with exponetial backoff
+# timeout   - The maximum number of seconds the poller will execute
+# retries   - The maximum number of times the action will be retried
+# yield     - A block that will execute, and if `:re_poll` is returned it will re-run
+#           - Re-runs until something is returned or the timeout/retries is reached
+# raise     - Raises an Octopoller::TimeoutError if the timeout is reached
+# raise     - Raises an Octopoller::TooManyAttemptsError if the retries is reached
+#
+def poll(wait: 1.second, timeout: nil, retries: nil)
+  ...
+```
+
+Octopoller has 3 use cases:
+* Poll something with a set timeout
+* Poll something with a set number of retries
+* Poll something with exponential backoff
+
+Here's what using Octpoller is like for each of the use cases listed above:
+* Poll with a timeout:
+  ```ruby
+  Octopoller.poll(timeout: 15.seconds) do
+    puts "🦑"
+    :re_poll
+  end
+
+  # => "🦑"
+  # => "🦑"
+  # ... (for 15 seconds)
+  # Timed out patiently (Octopoller::TimeOutError)
+  ```
+
+* Poll with retries:
+  ```ruby
+  Octopoller.poll(retries: 2) do
+    puts "🦑"
+    :re_poll
+  end
+
+  # => "🦑"
+  # => "🦑"
+  # => "🦑"
+  # Tried maximum number of attempts (Octopoller::TooManyAttemptsError)
+  ```
+
+* Poll with exponential backoff:
+  ```ruby
+  start = Time.now
+  Octopoller.poll(wait: :exponentially, retries: 4) do
+    puts Time.now - start
+    :re_poll
+  end
+
+  # => 0.5 seconds
+  # => 1 second
+  # => 2 seconds
+  # => 4 seconds
+  # => 8 seconds
+  # Tried maximum number of attempts (Octopoller::TooManyAttemptsError)
+  ```
 
 ## Development
 
