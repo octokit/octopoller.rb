@@ -1,5 +1,7 @@
 # Octopoller 🦑
-[![Build Status](https://travis-ci.com/BenEmdon/octopoller.svg?branch=master)](https://travis-ci.com/BenEmdon/octopoller)
+<a href="https://classroom.github.com"><img src="https://raw.githubusercontent.com/education/classroom/7c8577c29cf354965559503c009bcf4d29b85c2f/app/assets/images/wordmark%402x.png" height="15px"> battle tested.</a>
+
+[![Build Status](https://travis-ci.com/BenEmdon/octopoller.svg?branch=master)](https://travis-ci.com/BenEmdon/octopoller) 
 
 Octopoller is a micro gem for polling and retrying, perfect for making repeating requests.
 
@@ -14,6 +16,9 @@ end
 
 # => { "status" => 200,  "body" => "🦑" }
 ```
+
+## About
+Octopoller was originally created for the purpose of polling GitHub's [Source Imports API](https://developer.github.com/v3/migrations/source_imports/) for a repo's import status. It is now the backbone of [GitHub Classroom's](https://classroom.github.com) _import starter code_ process.
 
 ## Installation
 
