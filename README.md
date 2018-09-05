@@ -1,4 +1,6 @@
 # Octopoller 🦑
+[![Build Status](https://travis-ci.com/BenEmdon/octopoller.svg?branch=master)](https://travis-ci.com/BenEmdon/octopoller)
+
 Octopoller is a micro gem for polling and retrying, perfect for making repeating requests.
 
 ```ruby
