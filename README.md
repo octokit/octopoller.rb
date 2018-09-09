@@ -1,7 +1,7 @@
 # Octopoller 🦑
-<a href="https://classroom.github.com"><img src="https://raw.githubusercontent.com/education/classroom/7c8577c29cf354965559503c009bcf4d29b85c2f/app/assets/images/wordmark%402x.png" height="15px"> battle tested.</a>
+<a href="https://classroom.github.com"><img src="https://raw.githubusercontent.com/education/classroom/7c8577c29cf354965559503c009bcf4d29b85c2f/app/assets/images/wordmark%402x.png" height="15px"></a> battle tested.
 
-[![Build Status](https://travis-ci.com/BenEmdon/octopoller.svg?branch=master)](https://travis-ci.com/BenEmdon/octopoller) 
+[![Build Status](https://travis-ci.com/octokit/octopoller.rb.svg?branch=master)](https://travis-ci.com/octokit/octopoller.rb)
 
 Octopoller is a micro gem for polling and retrying, perfect for making repeating requests.
 
@@ -112,7 +112,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/BenEmdon/octopoller. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/octokit/octopoller.rb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -120,4 +120,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Octopoller project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/BenEmdon/octopoller/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Octopoller project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/octokit/octopoller.rb/blob/master/CODE_OF_CONDUCT.md).
