@@ -1,5 +1,4 @@
 # Octopoller 🦑
-<a href="https://classroom.github.com"><img src="https://raw.githubusercontent.com/education/classroom/7c8577c29cf354965559503c009bcf4d29b85c2f/app/assets/images/wordmark%402x.png" height="15px"></a> battle tested.
 
 [![Build Status](https://travis-ci.com/octokit/octopoller.rb.svg?branch=master)](https://travis-ci.com/octokit/octopoller.rb)
 
