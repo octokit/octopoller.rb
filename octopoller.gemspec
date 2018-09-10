@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A Ruby gem for polling and retrying actions}
   spec.description   = %q{A micro gem for polling and retrying, perfect for making repeating requests}
-  spec.homepage      = "https://github.com/BenEmdon/octopoller"
+  spec.homepage      = "https://github.com/octokit/octopoller.rb"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
