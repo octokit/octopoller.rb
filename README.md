@@ -8,7 +8,7 @@ Octopoller is a micro gem for polling and retrying, perfect for making repeating
 ```ruby
 Octopoller.poll(timeout: 15.seconds) do
   begin
-    client.make_that_request # ex. request a long running job's status
+    client.request_progress # ex. request a long running job's status
   rescue Error
     :re_poll
   end
