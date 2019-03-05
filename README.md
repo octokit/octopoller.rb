@@ -38,7 +38,7 @@ $ gem install octopoller
 ```
 ## Usage
 
-Octopoller exposes a single function `poll`. Here is what what the API looks like:
+Octopoller exposes a single function `poll`. Here is what the API looks like:
 ```ruby
 # Polls until success
 # Re-runs when the block returns `:re_poll`
