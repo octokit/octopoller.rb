@@ -28,7 +28,7 @@ module Octopoller
         sleep wait
         wait *= 2 if exponential_backoff
       end
-      raise TimeoutError, "Polling timed out paitently"
+      raise TimeoutError, "Polling timed out patiently"
     else
       (retries + 1).times do
         block_value = yield
