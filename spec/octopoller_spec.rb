@@ -19,7 +19,7 @@ RSpec.describe Octopoller do
         Octopoller.poll(wait: 0.01, timeout: 0.05) do
           :re_poll
         end
-      end.to raise_error(Octopoller::TimeoutError, "Polling timed out paitently")
+      end.to raise_error(Octopoller::TimeoutError, "Polling timed out patiently")
     end
 
     it "exits on successful return" do
