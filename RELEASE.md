@@ -1,7 +1,7 @@
 # Releasing a new version of octopoller.rb
 
 1. Create a list of all the changes since the prior release
-    1. Compare the latest release to master using https://github.com/octokit/octopoller.rb/compare/`${latest}`...master
+    1. Compare the previous release to `master` using `https://github.com/octokit/octopoller.rb/compare/`v1.3.3.7...master` (assuming that the last release was `v1.3.3.7`)
 1. Ensure there are no breaking changes _(if there are breaking changes you'll need to create a release branch without those changes or bump the major version)_
 1. Update the version
     1. Checkout `master`
