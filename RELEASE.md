@@ -5,7 +5,7 @@
 1. Ensure there are no breaking changes _(if there are breaking changes you'll need to create a release branch without those changes or bump the major version)_
 1. Update the version
     1. Checkout `master`
-    1. Update the constant in `lib/octopoller/version.rb` (when bundler is executed the version in the `Gemfile.lock` will be updated)
+    1. Update the constant in `lib/octopoller/version.rb` (when `bundle` is executed the version in the `Gemfile.lock` will be updated)
     1. Commit and push directly to `master`
 1. Run the `script/release` script to cut a release
 1. Draft a new release at <https://github.com/octokit/octopoller.rb/releases/new> containing the changelog from step 1
