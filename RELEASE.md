@@ -8,7 +8,7 @@
     1. Update the constant in `lib/octopoller/version.rb` (when bundler is executed the version in the `Gemfile.lock` will be updated)
     1. Commit and push directly to `master`
 1. Run the `script/release` script to cut a release
-1. Draft a new release at https://github.com/octokit/octopoller.rb/releases/new containing the changelog
+1. Draft a new release at <https://github.com/octokit/octopoller.rb/releases/new> containing the changelog from step 1
 
 ## Prerequisites
 
