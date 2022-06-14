@@ -4,4 +4,7 @@
 
 mkdir -p pkg
 gem build *.gemspec
+
+./script/validate
+
 mv *.gem pkg
