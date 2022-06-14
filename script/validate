@@ -18,8 +18,11 @@ This script expects that script/package, script/release or 'gem build *.gemspec'
 
 FILE=$(ls *.gem| head -1)
 
+echo "*** Validating file permissions in the octopoller gem ***"
+
 if [ ! -f "$FILE" ]; then
     echo "$FILE does not exist. Please run script/package, script/release or 'gem build *.gemspec' to generate the gem to be validated"
+    echo -e '☒ failure'
     exit 1
 fi
 
@@ -30,10 +33,12 @@ for f in $(tar --numeric-owner -tvf data.tar.gz )
 do
   if [ $f == "-rw-rw-rw-" ]; then
      echo "World writeable files (-rw-rw-rw- | 666) detected in the gem. Please repack and make sure that all files in the gem are owner read write ( -rw-r--r-- | 644 )"
+     echo -e '☒ failure'
      rm -f checksums.yaml.gz data.tar.gz metadata.gz
      exit 1
   fi
 done
 
 # Check clean up
+echo -e '☑ success'
 rm -f checksums.yaml.gz data.tar.gz metadata.gz

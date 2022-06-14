@@ -5,6 +5,14 @@
 mkdir -p pkg
 gem build *.gemspec
 
-./script/validate
+./script/validate || rm *.gem
 
-mv *.gem pkg
+echo "*** Packing and moving the octopoller gem ***"
+if [ -f *.gem ]; then
+  mv *.gem pkg
+  echo -e '☑ success'
+else
+  echo -e '☒ failure'
+  exit 1
+fi
+
