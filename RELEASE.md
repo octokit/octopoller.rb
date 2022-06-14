@@ -8,7 +8,7 @@
     2. Update the constant in `lib/octopoller/version.rb` (when `bundle` is executed the version in the `Gemfile.lock` will be updated)
     3. Run `bin/setup` so that `Gemfile.lock` will be updated with the new version
     4. Commit and push directly to `master`
-5. (Optional) Run `script/release` with no paraeters to execute a dry run of a release
+5. (Optional) Run `script/release` with no parameters to execute a dry run of a release
 6. Run the `script/release -r` script to cut a release (this will also run `script/validate` to perform the permission check)
 7. Draft a new release at <https://github.com/octokit/octopoller.rb/releases/new> containing the changelog from step 1
 
