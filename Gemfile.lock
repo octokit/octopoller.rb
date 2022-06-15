@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    octopoller (0.2.0)
+    octopoller (0.3.0)
 
 GEM
   remote: https://rubygems.org/
