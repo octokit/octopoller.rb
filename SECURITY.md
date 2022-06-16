@@ -9,5 +9,5 @@ Even though [open source repositories are outside of the scope of our bug bounty
 
 ## Reporting a Vulnerability
 
-Since octopoller is part of [Octokit](https://github.com/octokit) (a GitHub organization) we ask that you follow the guildlines [here](https://github.com/github/.github/blob/master/SECURITY.md#reporting-security-issues) to report anything that you might've found.
+Since octopoller is part of [Octokit](https://github.com/octokit) (a GitHub organization) we ask that you follow the guidelines [here](https://github.com/github/.github/blob/master/SECURITY.md#reporting-security-issues) to report anything that you might've found.
 
