@@ -70,7 +70,7 @@ Here's what using Octpoller is like for each of the use cases listed above:
   # => "🦑"
   # => "🦑"
   # ... (for 15 seconds)
-  # Timed out patiently (Octopoller::TimeOutError)
+  # Timed out patiently (Octopoller::TimeoutError)
   ```
 
 * Poll with retries:
