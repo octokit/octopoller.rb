@@ -14,6 +14,23 @@ RSpec.describe Octopoller do
         .to raise_error(ArgumentError, "Timed out without even being able to try")
     end
 
+    it "polls without wait" do
+      [0, false, nil].each do |wait|
+        tries, start, duration = 0, Time.now, nil
+        result = Octopoller.poll(wait: wait, timeout: 0.05) do
+          tries += 1
+          if tries == 3
+            duration = Time.now - start
+            "Success!"
+          else
+            :re_poll
+          end
+        end
+        expect(result).to eq("Success!")
+        expect(duration).to be < 0.1
+      end
+    end
+
     it "polls until timeout" do
       expect do
         Octopoller.poll(wait: 0.01, timeout: 0.05) do
@@ -66,7 +83,7 @@ RSpec.describe Octopoller do
 
     it "poll until max retries reached" do
       expect do
-        Octopoller.poll(wait: 0.01, retries: 2) do
+        Octopoller.poll(wait: false, retries: 2) do
           :re_poll
         end
       end.to raise_error(Octopoller::TooManyAttemptsError, "Polled maximum number of attempts")
@@ -75,7 +92,7 @@ RSpec.describe Octopoller do
     it "tries exactly the number of retries" do
       attempts = 0
       expect do
-        Octopoller.poll(wait: 0.01, retries: 3) do
+        Octopoller.poll(wait: false, retries: 3) do
           attempts += 1
           :re_poll
         end
@@ -107,7 +124,7 @@ RSpec.describe Octopoller do
 
     it "try until successful return" do
       tried = false
-      result = Octopoller.poll(wait: 0.01, retries: 1) do
+      result = Octopoller.poll(wait: false, retries: 1) do
         if tried
           "Success!"
         else
@@ -120,7 +137,7 @@ RSpec.describe Octopoller do
 
     it "doesn't swallow a raised error" do
       expect do
-        Octopoller.poll(wait: 0.01, retries: 0) do
+        Octopoller.poll(wait: false, retries: 0) do
           raise StandardError, "An error occured"
         end
       end.to raise_error(StandardError, "An error occured")

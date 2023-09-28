@@ -16,6 +16,8 @@ module Octopoller
   # raise     - Raises an Octopoller::TimeoutError if the timeout is reached
   # raise     - Raises an Octopoller::TooManyAttemptsError if the retries is reached
   def poll(wait: 1, timeout: nil, retries: nil)
+    wait = 0 if [nil, false].include?(wait)
+
     Octopoller.validate_arguments(wait, timeout, retries)
     exponential_backoff = (wait == :exponentially)
 
@@ -45,7 +47,7 @@ module Octopoller
       raise ArgumentError, "Must pass an argument to either `timeout` or `retries`"
     end
     exponential_backoff = wait == :exponentially
-    raise ArgumentError, "Cannot wait backwards in time" unless exponential_backoff || wait.positive?
+    raise ArgumentError, "Cannot wait backwards in time" if !exponential_backoff && wait.negative?
     raise ArgumentError, "Timed out without even being able to try" if timeout&.negative?
     raise ArgumentError, "Cannot retry something a negative number of times" if retries&.negative?
   end
