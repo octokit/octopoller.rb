@@ -43,6 +43,7 @@ Octopoller exposes a single function `poll`. Here is what the API looks like:
 #
 # wait      - The time delay in seconds between polls (default is 1 second)
 #           - When given the argument `:exponentially` the action will be retried with exponetial backoff
+#           - When given 0, false or nil, the action will be retried without wait
 # timeout   - The maximum number of seconds the poller will execute
 # retries   - The maximum number of times the action will be retried
 # yield     - A block that will execute, and if `:re_poll` is returned it will re-run
